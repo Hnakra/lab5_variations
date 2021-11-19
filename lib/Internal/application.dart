@@ -21,7 +21,13 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Lab5 Experiments',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          elevatedButtonTheme: ElevatedButtonThemeData(style: ElevatedButton.styleFrom(textStyle: TextStyle(fontSize: 20))),
+            textTheme: TextTheme(
+                bodyText2: TextStyle(fontSize: 18),
+            ),
+          primarySwatch: Colors.green,
+          scaffoldBackgroundColor: Colors.yellow.shade100
+
         ),
         initialRoute: '/',
         routes: {

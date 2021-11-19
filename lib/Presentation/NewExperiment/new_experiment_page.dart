@@ -12,37 +12,43 @@ class NewExperimentPage extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(title: Text("Создание эксперимента")),
       body: SafeArea(
-        child: Column(
-          children: [
-            Text("Введите название эксперимента"),
-            TextField(
-              controller: _nameController,
-              decoration: InputDecoration(
-                labelText: "Название Эксперимента"
-              ),
-            ),
-            Text("Введите кол-во ВДИ"),
-            TextField(
-                controller: _numVDI,
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: Column(
+            children: [
+              Text("Введите название эксперимента"),
+              TextField(
+                controller: _nameController,
                 decoration: InputDecoration(
-                    labelText: "Кол-во ВДИ"
+                  labelText: "Название Эксперимента"
                 ),
-                inputFormatters: [
-                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                ]
-            ),
-            Text("Введите алфавит через пробел:"),
-            TextField(
-              controller: _alphabet,
-              decoration: InputDecoration(
-                  labelText: "Алфавит"
               ),
-            ),
-            ElevatedButton(
-              child: Text("Создать эксперимент"),
-              onPressed: () => _createExperiment(context),
-            )
-          ],
+              SizedBox(height: 10,),
+              Text("Введите кол-во ВДИ"),
+              TextField(
+                  controller: _numVDI,
+                  decoration: InputDecoration(
+                      labelText: "Кол-во ВДИ"
+                  ),
+                  inputFormatters: [
+                    FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                  ]
+              ),
+              SizedBox(height: 10,),
+              Text("Введите алфавит через пробел:"),
+              TextField(
+                controller: _alphabet,
+                decoration: InputDecoration(
+                    labelText: "Алфавит"
+                ),
+              ),
+              SizedBox(height: 10,),
+              ElevatedButton(
+                child: Text("Создать эксперимент"),
+                onPressed: () => _createExperiment(context),
+              )
+            ],
+          ),
         ),
       )
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lab5_variations/Internal/Providers/experiment.dart';
+import 'package:lab5_variations/Internal/Providers/experiment.dart';
+import 'package:lab5_variations/Internal/Providers/experiment_list.dart';
 import 'package:provider/provider.dart';
 
 import 'Experiment_1/experiment_page_1.dart';
@@ -23,11 +25,11 @@ class ExperimentPage extends StatelessWidget {
         child: DefaultTabController(
           length: 2,
           initialIndex: 0,
-          child: Consumer<ExperimentModel>(
-            builder: (context, state, child) => Scaffold(
+          child: Scaffold(
                 appBar: AppBar(
-                  title: Text("Эксперимент ${state.name}"),
+                  title: Text("kek"),
                   bottom: TabBar(
+                    indicatorColor: Colors.green,
                     tabs: [
                       Tab(
                         child: Center(child: Text("Опыт 1")),
@@ -45,6 +47,6 @@ class ExperimentPage extends StatelessWidget {
                   ],
                 )),
           )
-        ));
+        );
   }
 }

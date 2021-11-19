@@ -12,11 +12,17 @@ class ExperimentListPage extends StatelessWidget{
       appBar: AppBar(
         title: Text("Список экспериментов"),
       ),
-      body: Column(
-        children: [
-          for(Map experiment in experiments)
-            experimentTile(context, experiment)
-          ]
+      body: Padding(
+        padding: EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            for(Map experiment in experiments)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: experimentTile(context, experiment),
+              )
+            ]
+        ),
       ),
 
       floatingActionButton: FloatingActionButton(
@@ -28,15 +34,23 @@ class ExperimentListPage extends StatelessWidget{
   }
   experimentTile(BuildContext context, Map experiment){
     return GestureDetector(
-      child: Container(
-        height: 80,
-        child: Column(
-          children: [
-            Text(experiment["name"]),
-            Text("Кол-во ВДИ: ${experiment["numVDI"]}"),
-            Text("Мощность алфавита: ${experiment["alphabet"].length}")
-          ]
-        ),
+
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.green, width: 3),
+            borderRadius: BorderRadius.circular(5)
+          ),
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: Column(
+              children: [
+                Text(experiment["name"]),
+                Text("Кол-во ВДИ: ${experiment["numVDI"]}"),
+                Text("Мощность алфавита: ${experiment["alphabet"].length}")
+              ]
+            ),
+          ),
+
       ),
       onTap: ()=> Navigator.pushNamed(context, '/experiment', arguments: {"experiment": experiment})
     );

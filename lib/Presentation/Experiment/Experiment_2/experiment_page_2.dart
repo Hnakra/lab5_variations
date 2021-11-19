@@ -5,11 +5,14 @@ import 'package:lab5_variations/Presentation/Experiment/Widgets/num_experiments.
 class Experiment2 extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        NumExperiments(),
-        ListExperiments(numExperiment: 2,)
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ListView(
+        children: [
+          NumExperiments(),
+          ListExperiments(numExperiment: 2,)
+        ],
+      ),
     );
   }
 }

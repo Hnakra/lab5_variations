@@ -4,7 +4,7 @@ import 'package:provider/src/provider.dart';
 
 class ListExperiments extends StatelessWidget{
   int numExperiment;
-  ListExperiments({required this.numExperiment});
+  ListExperiments({required this.numExperiment}):  super(key: Key(numExperiment.toString()));
 
 
   @override
@@ -16,18 +16,21 @@ class ListExperiments extends StatelessWidget{
         Text("Вероятность")
       ]),
     ];
-    data!.forEach((key, value) {
+    if(data != null) {
+      data.forEach((key, value) {
       listExperiments.add(
         TableRow(children: [
-          Text(key),
+          Text(key.toString()),
           Text(value.toString())
         ])
       );
     });
+    }
     return Column(
       children: [
         Text("Результат"),
-        Table(
+        SizedBox(height: 10,),
+        data == null ? circularProgress(): Table(
           children: listExperiments,
         )
       ],
